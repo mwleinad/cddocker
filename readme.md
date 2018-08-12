@@ -1,5 +1,5 @@
-need to install docker in windows pro (home doesn't work)
-if you installed docker tools delete the env variables from windows (all the DOCKER_ variables)
+- need to install docker in windows pro (home doesn't work)
+- if you installed docker tools delete the env variables from windows (all the DOCKER_ variables)
 
 - cd c:/
 - mkdir project
