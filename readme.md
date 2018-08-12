@@ -1,13 +1,13 @@
 need to install docker in windows pro (home doesn't work)
 if you installed docker tools delete the env variables from windows (all the DOCKER_ variables)
 
-cd c:/
-mkdir project
-composer create-project laravel/laravel .
-git submodule add https://github.com/LaraDock/laradock.git laradock
-cd laradock
-mv env-example .env
-docker-compose up -d nginx mysql phpmyadmin redis workspace 
+- cd c:/
+- mkdir project
+- composer create-project laravel/laravel .
+- git submodule add https://github.com/LaraDock/laradock.git laradock
+- cd laradock
+- mv env-example .env
+- docker-compose up -d nginx mysql phpmyadmin redis workspace 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
