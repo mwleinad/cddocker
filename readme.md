@@ -4,6 +4,7 @@
 - cd c:/
 - mkdir project
 - composer create-project laravel/laravel .
+- git init
 - git submodule add https://github.com/LaraDock/laradock.git laradock
 - cd laradock
 - mv env-example .env
