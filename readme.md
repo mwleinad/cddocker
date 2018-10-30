@@ -3,7 +3,7 @@
 
 - cd c:/
 - mkdir project
-- composer create-project laravel/laravel .
+- composer create-project laravel/laravel .       //You have to add the dot
 - git init
 - git submodule add https://github.com/LaraDock/laradock.git laradock
 - cd laradock
