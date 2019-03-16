@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('testa', 'TestaController@testa')->name('testa');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

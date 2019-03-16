@@ -17,7 +17,7 @@ module.exports = {
   // make sure to do this only in production.
   indexPath: process.env.NODE_ENV === 'production'
     ? '../resources/views/index.blade.php'
-    : 'index.html',
+    : '../resources/views/index_dev.blade.php',
   lintOnSave: true,
   configureWebpack: {
     // Set up all the aliases we use in our app.
