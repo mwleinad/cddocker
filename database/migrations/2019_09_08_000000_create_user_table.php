@@ -18,11 +18,13 @@ class CreateUserTable extends Migration
             $table->uuid('uuid');
             $table->string('name');
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('company');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('type')->default('manager');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
