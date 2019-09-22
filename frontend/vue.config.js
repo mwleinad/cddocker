@@ -8,7 +8,10 @@ function resolveSrc(_path) {
 module.exports = {
   // proxy API requests to Valet during development
   devServer: {
-      proxy: 'http://localhost'
+      proxy: 'http://localhost',
+      watchOptions: {
+        poll: true
+      }
   },
   // output built static files to Laravel's public dir.
   // note the "build" script in package.json needs to be modified as well.
@@ -45,5 +48,4 @@ module.exports = {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
   }
-
 };

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.03fd88a6893bca7c6467fa6d6c0135f4.js"
+  "/precache-manifest.be9a2b8e2b2842e59f320dc50a76f421.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-now-ui-dashboard-pro"});

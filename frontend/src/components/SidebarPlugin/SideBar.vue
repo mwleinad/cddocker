@@ -3,9 +3,9 @@
        :data-color="backgroundColor">
 
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+      <a href="#" class="simple-text logo-mini">
         <div class="logo-image">
-          <img :src="logo">
+          <i class="fas fa-globe"></i>
         </div>
       </a>
 

@@ -13,21 +13,29 @@ import routes from './routes/routes';
 Vue.use(VueRouter);
 Vue.use(DashboardPlugin);
 
+const router = new VueRouter({
+  routes, // short for routes: routes
+  linkActiveClass: 'active'
+});
+
+//This is only for frontend loading
+new Vue({
+  el: '#app',
+  render: h => h(App),
+  router
+});
+
+//TODO loading page
+/*
 axios.get('/api/testa')
   .then((response) => {
     console.log(response.data);
     // configure router
-    const router = new VueRouter({
-      routes, // short for routes: routes
-      linkActiveClass: 'active'
-    });
-
-    /* eslint-disable no-new */
+    /!* eslint-disable no-new *!/
     new Vue({
       el: '#app',
       render: h => h(App),
       router
     });
   });
-
-
+*/

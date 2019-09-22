@@ -26,7 +26,7 @@
                     </div>
                     <h3 class="info-title">
                       <small>$</small>
-                      <animated-number :value="3521"></animated-number>
+                      <animated-number :value="3000"></animated-number>
                     </h3>
                     <h6 class="stats-title">Today Revenue</h6>
                   </div>
@@ -52,9 +52,9 @@
                       <i class="now-ui-icons objects_support-17"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="353"></animated-number>
+                      <animated-number :value="400"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Support Requests</h6>
+                    <h6 class="stats-title">aaaa Support Requests</h6>
                   </div>
                 </div>
               </div>
