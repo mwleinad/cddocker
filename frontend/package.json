@@ -5,12 +5,14 @@
   "description": "Vue Now UI Dashboard PRO",
   "author": "cristijora <joracristi@gmail.com>",
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "watch": "NODE_ENV=development vue-cli-service serve --open --port 8085",
+    "serve": "vue-cli-service serve --open --port 8085",
     "build": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.7.1",
     "d3": "^5.9.1",

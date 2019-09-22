@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/js
 /storage/*.key
 /vendor
 /.idea
@@ -14,3 +15,6 @@ yarn-error.log
 
 /vuenow
 laradock
+
+/public/*.js
+/public/css

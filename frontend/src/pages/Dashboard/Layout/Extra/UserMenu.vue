@@ -1,7 +1,7 @@
 <template>
   <div class="user user__menu">
     <div class="photo">
-      <img :src="image" alt="avatar"/>
+      <i class="fas fa-building"></i>
     </div>
     <div class="info">
       <a data-toggle="collapse" :aria-expanded="!isClosed" @click.stop="toggleMenu" href="#">
@@ -17,20 +17,32 @@
             <slot>
               <li>
                 <a href="#vue">
-                  <span class="sidebar-mini-icon">MP</span>
-                  <span class="sidebar-normal">My Profile</span>
+                  <i class="fas fa-cog sidebar-mini-icon"></i>
+                  <span class="sidebar-normal">Configuración</span>
                 </a>
               </li>
               <li>
                 <a href="#vue">
-                  <span class="sidebar-mini-icon">EP</span>
-                  <span class="sidebar-normal">Edit Profile</span>
+                  <i class="fas fa-users sidebar-mini-icon"></i>
+                  <span class="sidebar-normal">Usuarios</span>
                 </a>
               </li>
               <li>
                 <a href="#vue">
-                  <span class="sidebar-mini-icon">S</span>
-                  <span class="sidebar-normal">Settings</span>
+                  <i class="fas fa-stamp sidebar-mini-icon"></i>
+                  <span class="sidebar-normal">Certificado</span>
+                </a>
+              </li>
+              <li>
+                <a href="#vue">
+                  <i class="fas fa-list sidebar-mini-icon"></i>
+                  <span class="sidebar-normal">Folios</span>
+                </a>
+              </li>
+              <li>
+                <a href="#vue">
+                  <i class="fas fa-money-bill-alt sidebar-mini-icon"></i>
+                  <span class="sidebar-normal">Facturación</span>
                 </a>
               </li>
             </slot>
@@ -51,7 +63,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'James Amos'
+      default: 'Mi empresa'
     },
     image: {
       type: String,
