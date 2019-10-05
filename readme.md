@@ -20,53 +20,104 @@
 </p>
 
 ## About Laravel
+######################################################
+To launch the dev version of the vue project (To make changes) 
+Open your WLS. Go to your project folder mine is
+cd /c/comprobantedigital
+go to frontend
+cd frontend
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Run 
+yarn install
+then
+yarn serve
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This will create a new frontend development server at
+http://localhost:8085/
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+Go to that page.
+Make a change to dashboard.vue
+It will take some seconds but it should build
 
-## Learning Laravel
+I wasn't able to make the HMR (hot module reload) work and the project is to big, so, just refresh the page to see the changes
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+Basically the frontend is Javascript and HTML 
+http://localhost:8085/  #Front end
+http://localhost #backend
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-## Laravel Sponsors
+#####################################
+be very careful running `composer update`, as this updates all dependencies
+You only need to run `composer install` this will install the latest APPROVED version of the dependencies.
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+All the php-artisan commands are run from git bash
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
 
-## Contributing
+#####################################
+To test the api calls you can go download 
+https://insomnia.rest/
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+######################################
+Basic stuff
+- The aplication is modular. 
+	- Which means is divided in modules. For instance user, company, customer, etc. 
+	- This decouples the services and we can focus on the business logic.
+	- Each module has its own models, views, controllers, tests, etc.
+	- https://nicolaswidart.com/blog/writing-modular-applications-with-laravel-modules
+- We use Single Action Controller. 
+	- That means, one controller one action. IE. Add a user, 1 controller, delete a user another controller. 
+	- For a basic CRUD you'd have 4 controllers.
+	- https://medium.com/@jrdnrc/single-action-controllers-a7de27c2c78b
+	- The controller should be REAL REAL basic. All data should be already validated, so you just pass data to the service and return a response to the view. Nothing more. NO BUSINESS LOGIC
+- We use correct http verbs.
+	- GET, POST, DELETE PATCH
+	- GET gets 1 or more resource
+	- POST creates a resource
+	- DELETE deletes a resource
+	- PATCH updates a resource
+- We use the repository pattern.
+	- Even though laravel offers an Eloquent ORM (https://laravel.com/docs/6.x/eloquent) we add another layer with repositories
+	- Repositories makes sure that if we ever change anything internally all we have to change is the repository class.
+	- They are easier to mock and test 
+	- The one I implemented is the same we use at work, so I know it works for 99.9% of the cases, you really shouldn't need anything else.
+	- https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/
+- We use validation requests
+	- Even before hitting the controller we have to validate our input. 
+	- IE. Say you need to create a user with an email, we need to validate the email format, we use laravel validation for that.
+	- After the validation we proceed to the controller
+- We use typehinting and return values for everything
+	- https://www.tutorialspoint.com/php7/php7_returntype_declarations.htm
+- We use phpdocs for everything
+	- Do not forget to generate the phpdoc blocks
+- We do not expose ids, we use uuids instead
+- We use softdeletes
+	- Softdelete means that the row is never deleted from the db, a deleted_at column is used instead. Laravel handles this
+	- https://laravel.com/docs/5.7/eloquent#soft-deleting
+- We use Dependency Injection.
+	- Laravel uses a service container that allow us to typehint and inject almost any class. 
+	- https://laravel.com/docs/5.8/container
+	- If a class is using more than 4 dependencies that's a sign that a class is doing to much, and we probably need to refactor into smaller classes
+- We refactor, like a lot
+	- code smells like, too many parameters in a function, classes breaking the Single Responsibility Principle. or not being SOLID
+	- Too many if, using switch, all that have to be refactored.
+	- We will do code reviews for that
+- We use RESTful routes
+- Not used yet
+	- Middleware. The middleware is something you want to add even before the controller or validation request is hit. 
+		- They are useful if you need to redirect the user if they aren't authorized for an action. 
+		- IE let's say you have a user trying to access an admin page, you can check the user and redirect to the home page instead. That way you don't even have to hit the validation request or controller.
+	- Factory pattern. They are very helpful when you have related types with the same flow.
+	- IE, an invoice has different "types". Factura, Nota de credito, Nomina, etc. They all return an XML
+	- You can use the factory pattern and just pass the type and have different classes that handle the process in the same way. If you add another type you just create another class that uses all the common methods and just change what's specific for that one.
+	- Policies. Policies are a simple laravel mechanism to know if we have permission to execute something.
+		- IE. InvoicePolicy, we can add a view/edit policy to know if the user can either view or edit the invoice.
+	- Mappers
+		- Mappers are object builders, instead of building an array and returning an array, we build an object, that way we can reuse that object anywhere
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The layers are basically
+	- Route
+	- Middleware
+	- Validation request
+	- Controller
+	- Service or Factory
