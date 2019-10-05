@@ -4,8 +4,8 @@ namespace Modules\Company\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Modules\Company\Http\Requests\CompanyGetValidationRequest;
-use Modules\Company\Services\CompanyGetService;
+use Modules\Company\Http\Requests\CompanyPostValidationRequest;
+use Modules\Company\Services\CompanyCreateService;
 
 /**
  * Class CompanyPostController
@@ -23,10 +23,10 @@ class CompanyPostController extends Controller {
     }
 
     /**
-     * @param CompanyGetValidationRequest $request
+     * @param CompanyPostValidationRequest $request
      * @return JsonResponse
      */
-    public function __invoke(CompanyGetValidationRequest $request) : JsonResponse {
+    public function __invoke(CompanyPostValidationRequest $request) : JsonResponse {
         $data = $request->validated();
         $response = $this->companyCreateService->create($data);
         return $this->handleAjaxJsonResponse($response);
