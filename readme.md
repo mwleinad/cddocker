@@ -11,6 +11,7 @@
 - docker-compose up -d nginx mysql phpmyadmin redis workspace 
 
 ######################################################
+
 To launch the dev version of the vue project (To make changes) 
 Open your WLS. Go to your project folder mine is
 cd /c/comprobantedigital
@@ -37,6 +38,7 @@ http://localhost #backend
 
 
 #####################################
+
 be very careful running `composer update`, as this updates all dependencies
 You only need to run `composer install` this will install the latest APPROVED version of the dependencies.
 
@@ -44,10 +46,12 @@ All the php-artisan commands are run from git bash
 
 
 #####################################
+
 To test the api calls you can go download 
 https://insomnia.rest/
 
 ######################################
+
 Basic stuff
 - The aplication is modular. 
 	- Which means is divided in modules. For instance user, company, customer, etc. 
