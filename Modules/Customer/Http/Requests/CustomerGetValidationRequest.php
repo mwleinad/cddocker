@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Company\Http\Requests;
+namespace Modules\Customer\Http\Requests;
 
 use App\Http\Requests\Request;
 
@@ -8,7 +8,7 @@ use App\Http\Requests\Request;
  * Class CompanyGetValidationRequest
  * @package Modules\Company\Http\Requests
  */
-class CompanyGetValidationRequest extends Request {
+class CustomerGetValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool

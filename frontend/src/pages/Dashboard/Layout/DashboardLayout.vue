@@ -10,15 +10,14 @@
         </sidebar-item>
         <sidebar-item :link="{name: 'Reporte CFDi\'s', icon: 'now-ui-icons business_chart-bar-32', path: '/reports/invoice'}">
         </sidebar-item>
-        <sidebar-item :link="{name: 'Clientes', icon: 'now-ui-icons users_single-02', path: '/clients'}">
+        <sidebar-item :link="{name: 'Customer', icon: 'now-ui-icons users_single-02', path: '/customer'}">
         </sidebar-item>
-
+        <sidebar-item :link="{name: 'Tables', icon: 'now-ui-icons users_single-02', path: ''}" :menu=true></sidebar-item>
       </template>
     </side-bar>
     <div class="main-panel">
       <top-navbar></top-navbar>
       <router-view name="header"></router-view>
-
       <div :class="{content: !$route.meta.hideContent}" @click="toggleSidebar">
         <zoom-center-transition :duration="200" mode="out-in">
           <!-- your content here -->

@@ -4,13 +4,12 @@ namespace Modules\Company\Services;
 
 use Modules\Company\Models\Company;
 use Modules\Company\Repositories\Interfaces\CompanyRepositoryInterface;
-use ThrowException;
 
 /**
- * Class CompanyGetService
+ * Class CompanyCreateService
  * @package Modules\Company\Services
  */
-class CompanyGetService {
+class CompanyCreateService {
     /**
      * @var CompanyRepositoryInterface
      */
@@ -25,18 +24,10 @@ class CompanyGetService {
     }
 
     /**
-     * @param $id
+     * @param array $data
      * @return Company|null
-    * At this point everything is validated, we shouldn't check anything else
      */
-    public function info($id) : ?Company {
-    
-        $company = $this->companyRepo->findBy('uuid', $id);
-        
-        if(!$company) {
-            ThrowException::notFound();
-        }
-
-        return $company;
+    public function create(array $data) : ?Company {
+        return $this->companyRepo->create($data);
     }
 }

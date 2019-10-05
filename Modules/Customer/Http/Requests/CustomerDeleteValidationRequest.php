@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Company\Http\Requests;
+namespace Modules\Customer\Http\Requests;
 
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyGetValidationRequest
- * @package Modules\Company\Http\Requests
+ * Class CustomerGetValidationRequest
+ * @package Modules\Customer\Http\Requests
  */
-class CompanyGetValidationRequest extends Request {
+class CustomerDeleteValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -24,7 +24,7 @@ class CompanyGetValidationRequest extends Request {
      */
     public function rules() {
         return [
-            //'uuid' => 'string|required'
+            'uuid' => 'string|required'
         ];
     }
 }

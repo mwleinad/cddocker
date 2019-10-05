@@ -5,10 +5,10 @@ namespace Modules\Company\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class CompanyGetValidationRequest
+ * Class CompanyPostValidationRequest
  * @package Modules\Company\Http\Requests
  */
-class CompanyGetValidationRequest extends Request {
+class CompanyPostValidationRequest extends Request {
     /**
      * Determine if the user is authorized to make this request.
      * @return bool
@@ -24,7 +24,8 @@ class CompanyGetValidationRequest extends Request {
      */
     public function rules() {
         return [
-            //'uuid' => 'string|required'
+            'taxpayer_id' => 'string|required|min:12|max:13|unique:company',
+            'name' => 'string|required',
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Modules\Company\Models;
 
+use App\Models\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package Modules\Company\Models
  */
 class Company extends Model {
-    use SoftDeletes;
+    use SoftDeletes, UuidTrait;
 
     /**
      * The database table used by the model.
