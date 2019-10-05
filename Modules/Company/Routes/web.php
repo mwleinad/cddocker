@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO removed for now so we can see errors in the api controllers. The frontend is activated with yarn watch anyway
-//Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+Route::prefix('company')->group(function() {
+    Route::get('/', 'CompanyController@index');
+});
