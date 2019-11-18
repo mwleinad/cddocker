@@ -24,7 +24,7 @@ class CustomerGetValidationRequest extends Request {
      */
     public function rules() {
         return [
-            //'uuid' => 'string|required'
+            'uuid' => 'sometimes|string|required'
         ];
     }
 }

@@ -25,7 +25,7 @@ class CustomerCreateService{
      * @param array $data
      * @return Customer|null
      */
-    public function create(array $data):?Customer{
+    public function create(array $data): ? Customer{
         return $this->customerRepo->create($data);
     }
 }

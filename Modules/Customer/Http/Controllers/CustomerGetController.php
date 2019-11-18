@@ -12,11 +12,14 @@ use Modules\Customer\Services\CustomerGetService;
  * @package Modules\Customer\Http\Controllers
  */
 class CustomerGetController extends Controller {
+    /**
+     * @var CustomerGetService
+     */
     private $customerGetService;
 
     /**
      * CustomerGetController constructor.
-     * @param CustomerGetService $companyGetService
+     * @param CustomerGetService $customerGetService
      */
     public function __construct(CustomerGetService $customerGetService) {
         $this->customerGetService = $customerGetService;
@@ -24,12 +27,11 @@ class CustomerGetController extends Controller {
 
     /**
      * @param CustomerGetValidationRequest $request
-     * @return JsonResponse
+     * @return JsonResponse whit customers|customer
      */
     public function __invoke(CustomerGetValidationRequest $request) : JsonResponse {
         $uuid =  $request->get("uuid");
-        //TODO Get all list customers OR get info by uuid if atribute uuid is passed
-        $response = $uuid ? $this->customerGetService->Info($uuid) : $this->customerGetService->GetCustomers(); 
+        $response = $uuid ? $this->customerGetService->info($uuid) : $this->customerGetService->getCustomer(); 
         return $this->handleAjaxJsonResponse($response);
     }
 }

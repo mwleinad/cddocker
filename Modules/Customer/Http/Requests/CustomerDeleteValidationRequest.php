@@ -5,7 +5,7 @@ namespace Modules\Customer\Http\Requests;
 use App\Http\Requests\Request;
 
 /**
- * Class CustomerGetValidationRequest
+ * Class CustomerDeleteValidationRequest
  * @package Modules\Customer\Http\Requests
  */
 class CustomerDeleteValidationRequest extends Request {

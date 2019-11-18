@@ -23,9 +23,10 @@ class CustomerPostValidationRequest extends Request{
         return [
             'company_id' => 'int|required',
             'name' => 'string|required',
-            'email'=>'string:required|unique:customer',
+            'email'=>'required|email|unique:customer',
             'taxpayer_id'=>'string|required',
             'phone'=>'string|required',
+            'rfc'=>'required|between:12,13|unique:customer',
         ];
     }
 }

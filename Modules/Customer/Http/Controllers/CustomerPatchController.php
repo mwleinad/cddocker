@@ -7,29 +7,34 @@ use App\Http\Controllers\Controller;
 use Modules\Customer\Http\Requests\CustomerPatchValidationRequest;
 use Modules\Customer\Services\CustomerPatchService;
 /**
- * Class CustomerGetController
+ * Class CustomerPatchController
  * @package Modules\Customer\Http\Controllers
  */
 class CustomerPatchController extends Controller {
+    /**
+     * @var CustomerPatchService
+     */
     private $customerPatchService;
 
     /**
-     * CustomerGetController constructor.
-     * @param CustomerGetService $companyGetService
+     * CustomerPatchController constructor.
+     * @param CustomerPatchService $customerPatchService
      */
     public function __construct(CustomerPatchService $customerPatchService) {
         $this->customerPatchService = $customerPatchService;
     }
 
     /**
-     * @param CustomerGetValidationRequest $request
+     * @param CustomerPatchValidationRequest $request
      * @return JsonResponse
      */
     public function __invoke(CustomerPatchValidationRequest $request) : JsonResponse {
         $uuid = $request->get("uuid"); 
+
         $data = $request->validated();
-        //TODO Get all list customers OR get info by uuid if atribute uuid is passed
-        $response = $this->customerPatchService->UpdateCustomer($data,$uuid);
+
+        $response = $this->customerPatchService->updateCustomer($data,$uuid);
+        
         return $this->handleAjaxJsonResponse($response);
     }
 }

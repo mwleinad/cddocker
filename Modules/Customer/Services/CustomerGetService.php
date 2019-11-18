@@ -8,8 +8,8 @@ use Modules\Customer\Repositories\Interfaces\CustomerRepositoryInterface;
 use ThrowException;
 
 /**
- * Class CompanyGetService
- * @package Modules\Company\Services
+ * Class CustomerGetService
+ * @package Modules\Customer\Services
  */
 class CustomerGetService {
     /**
@@ -26,24 +26,29 @@ class CustomerGetService {
     }
 
     /**
-     * @param $id
-     * @return Customer|null
-    * At this point everything is validated, we shouldn't check anything else
+     * @return Collection Customer | null
      */
-    public function GetCustomers():?Collection{
+    public function getCustomer(): ? Collection {
         $customer = $this->customerRepo->all();
-        //\Log::info($customer->all());
-        //exit;
+
         if($customer->isEmpty()) {
             ThrowException::notFound();
         }
+
         return $customer;
     }
-    public function Info($id):?Customer{
+
+    /**
+     * @param $id
+     * @return Customer|null
+     */
+    public function info($id): ? Customer{
         $customer = $this->customerRepo->findBy("uuid",$id);
+
         if(!$customer) {
             ThrowException::notFound();
         }
+
         return $customer;
     }
 }
