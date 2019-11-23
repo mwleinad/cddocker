@@ -29,11 +29,7 @@ class CustomerPatchController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CustomerPatchValidationRequest $request) : JsonResponse {
-        $uuid = $request->get("uuid"); 
-
-        $data = $request->validated();
-
-        $response = $this->customerPatchService->updateCustomer($data,$uuid);
+        $response = $this->customerPatchService->updateCustomer($request->validated(),$request->get("uuid"));
         
         return $this->handleAjaxJsonResponse($response);
     }

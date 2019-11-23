@@ -30,10 +30,8 @@ class CustomerDeleteController extends Controller {
      * @return JsonResponse
      */
     public function __invoke(CustomerDeleteValidationRequest $request) : JsonResponse {
-        $uuid =  $request->get("uuid");
-
-        $response = $this->customerDeleteService->deleteCustomer($uuid); 
-        
+        $response = $this->customerDeleteService->deleteCustomer($request->get("uuid"));
+         
         return $this->handleAjaxJsonResponse($response);
     }
 }

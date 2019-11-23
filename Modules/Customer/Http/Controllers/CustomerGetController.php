@@ -30,8 +30,8 @@ class CustomerGetController extends Controller {
      * @return JsonResponse whit customers|customer
      */
     public function __invoke(CustomerGetValidationRequest $request) : JsonResponse {
-        $uuid =  $request->get("uuid");
-        $response = $uuid ? $this->customerGetService->info($uuid) : $this->customerGetService->getCustomer(); 
+        $response = $uuid ? $this->customerGetService->info($request->get("uuid")) : $this->customerGetService->getCustomer(); 
+        
         return $this->handleAjaxJsonResponse($response);
     }
 }

@@ -30,8 +30,8 @@ class CustomerPostController extends Controller
      * @return JsonResponse
      */
     public function __invoke(CustomerPostValidationRequest $request) : JsonResponse {
-        $data = $request->validated();
-        $response = $this->customerCreateService->create($data);
+        $response = $this->customerCreateService->create($request->validated());
+        
         return $this->handleAjaxJsonResponse($response);
     }
 }
