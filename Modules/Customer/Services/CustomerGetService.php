@@ -42,7 +42,7 @@ class CustomerGetService {
      * @param $id
      * @return Customer|null
      */
-    public function info($id): ? Customer{
+    public function info($id): ? Customer {
         $customer = $this->customerRepo->findBy("uuid",$id);
 
         if(!$customer) {

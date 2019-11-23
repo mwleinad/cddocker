@@ -29,6 +29,7 @@ class CustomerPatchService{
      */
     public function updateCustomer($data,$uuid): ? bool{
         $customer = $this->customerRepo->update($data,$uuid,"uuid");
+        
         if(!$customer) {
             ThrowException::notFound();
         }
