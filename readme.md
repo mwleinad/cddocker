@@ -115,3 +115,72 @@ The layers are basically
 	- Validation request
 	- Controller
 	- Service or Factory
+
+
+##Installing with homestead
+
+Install virtualbox
+Install vagrant
+
+Recommended using gitbash for all this.
+
+in a cmd run
+#vagrant box add laravel/homestead
+
+create a folder in c:/ called homestead and run
+
+#git clone https://github.com/laravel/homestead.git c:/Homestead
+
+Do a checkout of a different branch other than master
+cd c:/homestead
+git checkout release
+
+Run 
+#bash init.sh
+
+Open the new homestead.yaml
+Make sure the provider is virtualbox
+
+Make sure folders look like this
+folders:
+    - map: c:/laravel/comprobantedigital
+      to: /home/vagrant/comprobantedigital
+
+Make sure sites look like this
+sites:
+    - map: comprobantedigital.test
+      to: /home/vagrant/comprobantedigital/public
+
+databases:
+    - homestead
+    - comprobantedigital
+
+
+Open your hosts file as admin
+C:\Windows\System32\drivers\etc\hosts
+
+Add
+#192.168.10.10  homestead.test
+
+Go to c:/homestead and run (RUN THIS AS AN ADMINISTRATOR!!)
+#vagrant up
+
+If you have issues running homestead try running
+#bcdedit /set hypervisorlaunchtype off
+and restarting your machine
+
+Ssh into the virtual machine
+go to c:/homestead
+#vagrant ssh
+
+#cd /home/vagrant/comprobantedigital
+
+Just clone the 
+https://github.com/mwleinad/cddocker
+To a folder named comprobantedigital
+
+git clone https://github.com/mwleinad/cddocker.git c:/laravel/comprobantedigital
+
+Go to
+http://comprobantedigital.test/api/customer 
+To test it out
