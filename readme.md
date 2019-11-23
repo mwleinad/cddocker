@@ -117,7 +117,7 @@ The layers are basically
 	- Service or Factory
 
 
-##Installing with homestead
+## Installing with homestead
 
 Install virtualbox
 Install vagrant
@@ -125,18 +125,18 @@ Install vagrant
 Recommended using gitbash for all this.
 
 in a cmd run
-#vagrant box add laravel/homestead
+# vagrant box add laravel/homestead
 
 create a folder in c:/ called homestead and run
 
-#git clone https://github.com/laravel/homestead.git c:/Homestead
+# git clone https://github.com/laravel/homestead.git c:/Homestead
 
 Do a checkout of a different branch other than master
-cd c:/homestead
-git checkout release
+# cd c:/homestead
+# git checkout release
 
 Run 
-#bash init.sh
+# bash init.sh
 
 Open the new homestead.yaml
 Make sure the provider is virtualbox
@@ -155,25 +155,24 @@ databases:
     - homestead
     - comprobantedigital
 
-
 Open your hosts file as admin
-C:\Windows\System32\drivers\etc\hosts
+# C:\Windows\System32\drivers\etc\hosts
 
 Add
-#192.168.10.10  homestead.test
+# 192.168.10.10  homestead.test
 
 Go to c:/homestead and run (RUN THIS AS AN ADMINISTRATOR!!)
-#vagrant up
+# vagrant up
 
 If you have issues running homestead try running
-#bcdedit /set hypervisorlaunchtype off
+# bcdedit /set hypervisorlaunchtype off
 and restarting your machine
 
 Ssh into the virtual machine
 go to c:/homestead
-#vagrant ssh
+# vagrant ssh
 
-#cd /home/vagrant/comprobantedigital
+# cd /home/vagrant/comprobantedigital
 
 Just clone the 
 https://github.com/mwleinad/cddocker
