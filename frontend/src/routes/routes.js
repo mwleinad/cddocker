@@ -74,6 +74,10 @@ const ExtendedTables = () =>
   import(/* webpackChunkName: "tables" */ 'src/pages/Dashboard/Tables/ExtendedTables.vue');
 const PaginatedTables = () =>
   import(/* webpackChunkName: "tables" */ 'src/pages/Dashboard/Tables/PaginatedTables.vue');
+
+//Content DashBoard
+import Customer from 'src/pages/Dashboard/Customer/Customer.vue';
+
 let componentsMenu = {
   path: '/components',
   component: DashboardLayout,
@@ -285,7 +289,19 @@ const routes = [
       }
     ]
   },
+  {
+    path:'/customer',
+    component:DashboardLayout,
+    redirect:'/customer',
+    name:'Customer',
+    children: [
+      {
+        path: '',
+        name: 'CustomerMain',
+        components: { default: Customer, header: DashboardHeader }
+      }
+    ]
+  },
   { path: '*', component: NotFound }
 ];
-
 export default routes;

@@ -21,7 +21,6 @@ class CompanyPostController extends Controller {
     public function __construct(CompanyCreateService $companyCreateService) {
         $this->companyCreateService = $companyCreateService;
     }
-
     /**
      * @param CompanyPostValidationRequest $request
      * @return JsonResponse

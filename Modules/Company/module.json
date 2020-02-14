@@ -8,7 +8,8 @@
         "Modules\\Company\\Providers\\CompanyServiceProvider",
         "Modules\\Company\\Providers\\RepositoryServiceProvider"
     ],
-    "aliases": {},
+    "aliases": [],
     "files": [],
-    "requires": []
+    "requires": [],
+    "active": 1
 }
