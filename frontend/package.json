@@ -14,7 +14,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.9.4",
     "d3": "^5.9.1",
     "datamaps": "^0.5.9",
     "element": "^0.1.4",
